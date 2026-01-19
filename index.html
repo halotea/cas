@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photography Project</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="header">
+    <h1>Your Project Title</h1>
+    <h2>Your Name</h2>
+  </header>
+
+  <main class="video-container">
+    <div class="video-box" onclick="playVideo('VIDEO_ID_1')">Video 1</div>
+    <div class="video-box" onclick="playVideo('VIDEO_ID_2')">Video 2</div>
+    <div class="video-box" onclick="playVideo('VIDEO_ID_3')">Video 3</div>
+  </main>
+
+  <div id="overlay" onclick="closeVideo()">
+    <iframe
+      id="videoFrame"
+      src=""
+      frameborder="0"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    function playVideo(videoId) {
+      const overlay = document.getElementById("overlay");
+      const frame = document.getElementById("videoFrame");
+
+      frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+      overlay.style.display = "flex";
+    }
+
+    function closeVideo() {
+      const overlay = document.getElementById("overlay");
+      const frame = document.getElementById("videoFrame");
+
+      frame.src = "";
+      overlay.style.display = "none";
+    }
+  </script>
+
+</body>
+</html>
